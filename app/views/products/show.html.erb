@@ -1,5 +1,6 @@
 <h1 class="productName"><%= @product.name %></h1><br>
 <p class="productDescription"><%= @product.description %></p>
+
 <a href="#" class="js-next" data-id="<%= @product.id %>">Next Product</a>
 
 <script type="text/javascript">
@@ -10,8 +11,6 @@
       $.getJSON("/products/" + nextId + "/data", function(data) {
         $(".productName").text(data["name"]);
         $(".productDescription").text(data["description"]);
-        $(".productPrice").text(data["price"]);
-        $(".productInventory").text(data["inventory"]);
         $(".js-next").attr("data-id"), data["id"];
       });
     });
